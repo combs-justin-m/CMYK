@@ -16,11 +16,8 @@
           Cookies.expire('sessionToken', data.sessionToken);
           Cookies.expire('username', data.username);
 
-          $location.path('/login')
+          window.location.reload();
 
-          .error(function(data){
-            console.log(data);
-          })
         });
 
       };

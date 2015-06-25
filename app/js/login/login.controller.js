@@ -24,7 +24,7 @@
           Cookies.set('sessionToken', data.sessionToken, { expires: Infinity });
           Cookies.set('username', data.username, { expires: Infinity });
 
-          $location.path('/');
+          window.location.href = ''
         });
       };
 
@@ -37,7 +37,7 @@
            Cookies.set('sessionToken', data.sessionToken, { expires: Infinity });
            Cookies.set('username', data.username, { expires: Infinity });
 
-           $location.path('/');
+           window.location.href = '';
         })
       }
 
