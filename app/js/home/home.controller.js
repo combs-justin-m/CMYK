@@ -19,8 +19,27 @@
           window.location.reload();
 
         });
-
       };
+
+      $scope.colorList = [];
+
+      var Color = function(options) {
+        this.hex = options.hex;
+      }
+
+      $scope.addColor = function(x) {
+
+        if (x.hex.length < 6) {
+          return alert('fail');
+        }
+
+        var color = new Color(x);
+
+        $scope.colorList.push(color);
+
+        $scope.c = {};
+
+      }
 
     }]);
 
