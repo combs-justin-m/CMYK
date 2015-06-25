@@ -25,6 +25,13 @@
           Cookies.set('username', data.username, { expires: Infinity });
 
           window.location.href = ''
+        })
+
+        .error(function(data){
+          $('.signupField').addClass('error');
+          $scope.user.username = '';
+          $scope.user.password = '';
+          $('.signupName').attr("placeholder", data.error.toUpperCase()).placeholder();
         });
       };
 
@@ -39,6 +46,15 @@
 
            window.location.href = '';
         })
+
+        .error(function(data){
+          var name = $('.loginName');
+
+          $('.loginField').addClass('error');
+          $scope.userLogin.username = '';
+          $scope.userLogin.password = '';
+          name.attr("placeholder", data.error.toUpperCase()).placeholder();
+        });
       }
 
     }])
