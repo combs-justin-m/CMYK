@@ -41,7 +41,7 @@ gulp.task('webserver', function() {
   return gulp.src('app')
     .pipe(server({
       livereload: true,
-      // open: true // Uncomment if you want it to open the project for you
+      open: true // Uncomment if you want it to open the project for you
     }));
 });
 
@@ -51,7 +51,7 @@ gulp.task('webserver', function() {
 //================================================
 
 gulp.task('hint:js', function() {
-  return gulp.src(['./app/js/*.js', '!./app/js/vendor/*'])
+  return gulp.src(['./app/js/*.js', '!./app/js/vendor/*', '!./app/js/materialize.js'])
     .pipe(notifyError())
     .pipe(jshint())
     .pipe(jshint.reporter('fail'))
