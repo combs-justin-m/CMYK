@@ -4,8 +4,8 @@
 
   angular.module('app')
 
-  .controller('Login', ['$scope', '$http', 'PARSE',
-    function($scope, $http, PARSE){
+  .controller('Login', ['$scope', '$http', 'PARSE', '$location' ,
+    function($scope, $http, PARSE, $location){
 
       $('.modal-trigger').leanModal();
 
@@ -20,7 +20,11 @@
         $http.post(PARSE.URL + 'users/', x, PARSE.CONFIG)
 
         .success(function(data){
-          console.log(data);
+
+          Cookies.set('sessionToken', data.sessionToken, { expires: Infinity });
+          Cookies.set('username', data.username, { expires: Infinity });
+
+          $location.path('/');
         });
       };
 
@@ -30,7 +34,10 @@
         $http.get(PARSE.URL + 'login/?username=' + encodeURIComponent(x.username) + '&password=' + encodeURIComponent(x.password), PARSE.CONFIG)
 
         .success(function(data){
-          console.log(data);
+           Cookies.set('sessionToken', data.sessionToken, { expires: Infinity });
+           Cookies.set('username', data.username, { expires: Infinity });
+
+           $location.path('/');
         })
       }
 
