@@ -25,6 +25,16 @@
 
       var Color = function(options) {
         this.hex = options.hex;
+        this.ACL = {
+                    "JNl7n1NaXE": {
+                      "read": true,
+                      "write": true
+                    },
+                    "*": {
+                      "read": true
+                    }
+                  }
+
       }
 
       $scope.addColor = function(x) {
@@ -35,9 +45,18 @@
 
         var color = new Color(x);
 
-        $scope.colorList.push(color);
+        console.log(color);
 
-        $scope.c = {};
+        $http.post(PARSE.URL + 'classes/mycolors',x, PARSE.CONFIG)
+
+        .success(function(data){
+
+          $scope.colorList.push(color);
+
+          $scope.c = {};
+
+        });
+
 
       }
 
