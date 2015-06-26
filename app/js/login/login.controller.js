@@ -21,6 +21,7 @@
 
         .success(function(data){
 
+          Cookies.set('objectId', data.objectId, { expires: Infinity });
           Cookies.set('sessionToken', data.sessionToken, { expires: Infinity });
           Cookies.set('username', data.username, { expires: Infinity });
 
@@ -41,8 +42,9 @@
         $http.get(PARSE.URL + 'login/?username=' + encodeURIComponent(x.username) + '&password=' + encodeURIComponent(x.password), PARSE.CONFIG)
 
         .success(function(data){
-           Cookies.set('sessionToken', data.sessionToken, { expires: Infinity });
-           Cookies.set('username', data.username, { expires: Infinity });
+          Cookies.set('objectId', data.objectId, { expires: Infinity });
+          Cookies.set('sessionToken', data.sessionToken, { expires: Infinity });
+          Cookies.set('username', data.username, { expires: Infinity });
 
            window.location.href = '';
         })

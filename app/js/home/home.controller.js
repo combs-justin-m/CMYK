@@ -22,6 +22,7 @@
 
         .success(function(data){
 
+          Cookies.expire('objectId', data.sessionToken);
           Cookies.expire('sessionToken', data.sessionToken);
           Cookies.expire('username', data.username);
 
