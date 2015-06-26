@@ -2,11 +2,6 @@
 
   'use strict';
 
-  // var sessionToken = '';
-  // if(Cookies.get('sessionToken') !== undefined ){
-  //   sessionToken = Cookies.get('sessionToken');
-  // }
-
   angular.module('app', ['ngRoute'])
 
   .constant('PARSE', {

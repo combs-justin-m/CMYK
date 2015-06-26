@@ -2,26 +2,35 @@
 <nav class="black">
   <div class="nav-wrapper">
     <a href="#/" class="brand-logo">Can't Match Your Kolors?</a>
-    <ul id="nav-mobile" class="right hide-on-med-and-down">
+    <ul id="nav-mobile" class="right">
       <li ng-click="logout()">Log Out</li>
     </ul>
   </div>
 </nav>
 
 <div class="container">
-  <form ng-submit='addColor(c)'>
+
   <div class="row">
     <div class="col s12 m2" ng-repeat="c in colorList">
       <div class="card">
         <div class="card-content style" style="background-color: {{c.hex}}"></div>
         <div class="card-action">
-          <a class="black-text" href="#">{{c.hex}}</a>
+          <p class="black-text" href="#" ng-dblclick="editColor(c)" ng-click="editing = true">{{c.hex}}</p>
+          <p ng-dblclick="deleteColor(c)">X</p>
         </div>
       </div>
+
+
+        <form ng-submit="editing = false" ng-show="editing">
+          <input type="text" ng-model="c.hex" placeholder="Hex" ng-required/>
+          <br/>
+          <button class="btn" type="submit">Save</button>
+       </form>
+
     </div>
   </div>
-
-    <input type="text" ng-model="c.hex" placeholder="Ex: #FF3300" required>
+  <form ng-submit='addColor(c)'>
+    <input id="colorInput" type="text" ng-model="c.hex" placeholder="Ex: #FF3300" required>
     <button class="btn-floating btn-large waves-effect waves-green white black-text">+</button>
   </form>
 </div>

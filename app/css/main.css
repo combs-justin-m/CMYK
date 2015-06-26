@@ -1,2 +1,11 @@
 .error {
   border-bottom: 2px solid red !important; }
+
+.card-content {
+  height: 120px; }
+
+.card .card-action {
+  padding: 5px 10px; }
+
+p {
+  margin: 0; }

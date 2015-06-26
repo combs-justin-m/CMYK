@@ -7,12 +7,12 @@
   .controller('Home', ['$scope', '$http', '$location', 'PARSE',
     function($scope, $http, $location, PARSE){
 
+      $scope.visible = false;
+
       $scope.colorList = [];
 
-
-  $http.get(PARSE.URL + 'classes/mycolors', PARSE.CONFIG)
+      $http.get(PARSE.URL + 'classes/mycolors', PARSE.CONFIG)
         .success(function(data){
-          console.log(data)
           $scope.colorList = data.results;
         })
 
@@ -65,8 +65,22 @@
           $scope.c = {};
 
         });
+      }
 
+      $scope.editColor = function(x) {
 
+        $('#colorInput').val(x.hex);
+      }
+
+      $scope.deleteColor = function(x) {
+
+        var objId = x.objectId;
+
+        $http.delete(PARSE.URL + 'classes/mycolors/' + objId, PARSE.CONFIG)
+          .success( function (data) {
+            console.log(data)
+            $scope.colorList = _.without($scope.colorList, x);
+        });
       }
 
     }]);
