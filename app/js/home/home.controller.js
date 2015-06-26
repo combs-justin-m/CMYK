@@ -31,16 +31,17 @@
         });
       };
 
+      var userID = Cookies.get('objectId');
 
       var Color = function(options) {
         this.hex = options.hex;
         this.ACL = {
-                    "JNl7n1NaXE": {
+                    JNl7n1NaXE: {
                       "read": true,
                       "write": true
                     },
                     "*": {
-                      "read": true
+                      "read": false
                     }
                   }
 
@@ -50,6 +51,8 @@
 
         var color = new Color(x);
 
+        console.log(color);
+
         $http.post(PARSE.URL + 'classes/mycolors',x, PARSE.CONFIG)
 
         .success(function(data){
@@ -57,8 +60,6 @@
           color.objectId = data.objectId;
 
           $scope.colorList.push(color);
-
-          console.log($scope.colorList);
 
           $scope.c = {};
 
@@ -70,9 +71,7 @@
         $http.put(PARSE.URL + 'classes/mycolors/' + x.objectId, x, PARSE.CONFIG)
           .success(function(data){
             $scope.visible = false;
-
           })
-
       }
 
       $scope.deleteColor = function(x) {

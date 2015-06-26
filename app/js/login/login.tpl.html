@@ -1,33 +1,34 @@
+<div class="jumbotron">
+  <nav class="black">
+    <div class="nav-wrapper">
+      <a href="#" class="brand-logo"><span class="Cyan">Can't</span> <span class="Magenta">Match</span> <span class="Yellow">Your</span> Kolors?</a>
+    </div>
+  </nav>
 
-<nav class="black">
-  <div class="nav-wrapper">
-    <a href="#" class="brand-logo">Can't Match Your Kolors?</a>
-  </div>
-</nav>
+  <div class="container loginWrapper">
 
-<div class="container">
-
-  <form ng-submit="loginUser(userLogin)">
-    <input type="text" class="loginField loginName" ng-model="userLogin.username"  placeholder="User Name" required>
-    <input type="password" class="loginField" ng-model="userLogin.password"  placeholder="Password" required>
-    <button class="waves-effect waves-light btn">Log In</button>
-    <a class="waves-effect waves-light modal-trigger" href="#modal1">Sign Up</a>
-  </form>
-
-  <div id="modal1" class="modal white">
-    <form ng-submit="addUser(user)">
-      <div class="modal-content">
-        <h4>Sign Up</h4>
-          <input class="signupField signupName" type="text" ng-model="user.username" placeholder="User Name" required autofocus>
-          <input class="signupField" type="password" ng-model="user.password" placeholder="Password" required>
-      </div>
-      <div class="modal-footer white">
-
-        <p id="signupError"></p>
-
-        <button class="modal-action waves-effect waves-green white btn-flat">Agree</button>
-      </div>
+    <form ng-submit="loginUser(userLogin)">
+      <input type="text" class="loginField loginName white-text" ng-model="userLogin.username"  placeholder="User Name" required>
+      <input type="password" class="loginField white-text" ng-model="userLogin.password"  placeholder="Password" required>
+      <button class="waves-effect waves-dark btn white black-text">Log In</button>
+      <a class="waves-effect waves-light modal-trigger right white-text signup" href="#modal1">Sign Up</a>
     </form>
-  </div>
 
+    <div id="modal1" class="modal white">
+      <form ng-submit="addUser(user)">
+        <div class="modal-content">
+          <h4>Sign Up</h4>
+            <input class="signupField signupName" type="text" ng-model="user.username" placeholder="User Name" required autofocus>
+            <input class="signupField" type="password" ng-model="user.password" placeholder="Password" required>
+        </div>
+        <div class="modal-footer white">
+
+          <p id="signupError"></p>
+
+          <button class="modal-action waves-effect waves-green white btn-flat">Agree</button>
+        </div>
+      </form>
+    </div>
+
+  </div>
 </div>

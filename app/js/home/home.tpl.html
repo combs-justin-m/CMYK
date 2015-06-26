@@ -1,9 +1,9 @@
 
 <nav class="black">
   <div class="nav-wrapper">
-    <a href="#/" class="brand-logo">Can't Match Your Kolors?</a>
+    <a href="#/" class="brand-logo"><span class="Cyan">Can't</span> <span class="Magenta">Match</span> <span class="Yellow">Your</span> Kolors?</a>
     <ul id="nav-mobile" class="right">
-      <li ng-click="logout()">Log Out</li>
+      <li ng-click="logout()" class="logout">Log Out</li>
     </ul>
   </div>
 </nav>
@@ -11,7 +11,7 @@
 <div class="container">
 
   <div class="row">
-    <div class="col s12 m2" ng-repeat="c in colorList">
+    <div class="col s12 m2 colorCard" ng-repeat="c in colorList">
       <div class="card">
         <div class="card-content style" style="background-color: {{c.hex}}"></div>
         <div class="card-action">
@@ -19,14 +19,9 @@
         <form ng-submit="updateColor(c)" ng-show="visible">
           <input type="text" ng-model="c.hex" placeholder="Hex" ng-required autofocus>
           <br/>
-          <button class="btn">Update</button>
-          <button class="btn-flat" ng-click="visible = false">Close</button>
-       </form>
-
-          <button ng-click="deleteColor(c)" class="btn red">X</button>
-
-
-
+          <button class="btn waves-effect waves-dark update" style="background-color: {{c.hex}}" ng-click="visible = false">Update</button>
+        </form>
+        <button ng-dblclick="deleteColor(c)" class="btn red delete"><i class="material-icons">delete</i></button>
         </div>
       </div>
 
@@ -35,7 +30,7 @@
     </div>
   </div>
   <form ng-submit="addColor(c)">
-    <input id="colorInput" type="text" ng-model="c.hex" placeholder="Ex: #FF3300" required style="background-color: {{c.hex}}">
-    <button class="btn-floating btn-large waves-effect waves-green white black-text">+</button>
+    <input id="colorInput" type="text" ng-model="c.hex" placeholder="Ex: #FF3300 - Double Click to Edit or Delete a Color" required style="background-color: {{c.hex}}">
+    <button class="btn-floating btn-large waves-effect waves-green white black-text"><i class="material-icons black-text">add</i></button>
   </form>
 </div>

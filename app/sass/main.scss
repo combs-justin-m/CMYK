@@ -1,13 +1,91 @@
+.jumbotron {
+  background-image: url("/images/cmyklogin.png");
+  background-size: cover;
+  height: 100vh;
+  width: 100%;
+}
+
+.Cyan {
+  color: cyan;
+}
+
+.Yellow {
+  color: yellow;
+}
+
+.Magenta {
+  color: magenta;
+}
+
+nav {
+  margin-bottom: 30px;
+  padding: 0 30px;
+}
+
+.logout {
+  cursor: pointer;
+}
+
+.loginWrapper {
+  margin: 0 auto;
+  width: 400px;
+  padding-top: 200px;
+}
+
+.loginField {
+  border-bottom:2px solid white !important;
+  text-shadow: 1px 1px 3px black;
+  font-size: 18px !important;
+}
+
+.signup {
+  font-size: 18px;
+  text-shadow: 1px 1px 3px black;
+  padding-right: 2px;
+}
+
+.signupField input[type=text]:focus + label {
+     color: magenta;
+}
+
 .error {
   border-bottom: 2px solid red !important;
 }
 
+.colorCard {
+  padding-bottom: 50px;
+}
+
+.card {
+
+
+  &:hover .delete {
+    opacity: 1;
+  }
+}
+
 .card-content {
+  position: relative;
   height: 120px;
 }
 
 .card .card-action {
-  padding: 5px 10px;
+  text-align: center;
+  padding: 5px;
+}
+
+.delete {
+  opacity: 0;
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  width: 35px;
+  height: 35px;
+  padding: 0;
+}
+
+.update {
+  margin-bottom: 15px;
 }
 
 p {
