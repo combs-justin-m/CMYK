@@ -7,6 +7,15 @@
   .controller('Home', ['$scope', '$http', '$location', 'PARSE',
     function($scope, $http, $location, PARSE){
 
+      $scope.colorList = [];
+
+
+  $http.get(PARSE.URL + 'classes/mycolors', PARSE.CONFIG)
+        .success(function(data){
+          console.log(data)
+          $scope.colorList = data.results;
+        })
+
       $scope.logout = function() {
 
         $http.post(PARSE.URL + 'logout','', PARSE.CONFIG)
@@ -21,7 +30,6 @@
         });
       };
 
-      $scope.colorList = [];
 
       var Color = function(options) {
         this.hex = options.hex;
