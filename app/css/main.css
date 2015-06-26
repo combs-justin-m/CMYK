@@ -9,3 +9,7 @@
 
 p {
   margin: 0; }
+
+.color {
+  cursor: pointer;
+  margin: 10px auto; }

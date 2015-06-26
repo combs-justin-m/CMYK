@@ -15,22 +15,27 @@
       <div class="card">
         <div class="card-content style" style="background-color: {{c.hex}}"></div>
         <div class="card-action">
-          <p class="black-text" href="#" ng-dblclick="editColor(c)" ng-click="editing = true">{{c.hex}}</p>
-          <p ng-dblclick="deleteColor(c)">X</p>
+          <p class="black-text color" href="#" ng-hide="visible" ng-dblclick="visible = true">{{c.hex}}</p>
+        <form ng-submit="updateColor(c)" ng-show="visible">
+          <input type="text" ng-model="c.hex" placeholder="Hex" ng-required autofocus>
+          <br/>
+          <button class="btn">Update</button>
+          <button class="btn-flat" ng-click="visible = false">Close</button>
+       </form>
+
+          <button ng-click="deleteColor(c)" class="btn red">X</button>
+
+
+
         </div>
       </div>
 
 
-        <form ng-submit="editing = false" ng-show="editing">
-          <input type="text" ng-model="c.hex" placeholder="Hex" ng-required/>
-          <br/>
-          <button class="btn" type="submit">Save</button>
-       </form>
 
     </div>
   </div>
-  <form ng-submit='addColor(c)'>
-    <input id="colorInput" type="text" ng-model="c.hex" placeholder="Ex: #FF3300" required>
+  <form ng-submit="addColor(c)">
+    <input id="colorInput" type="text" ng-model="c.hex" placeholder="Ex: #FF3300" required style="background-color: {{c.hex}}">
     <button class="btn-floating btn-large waves-effect waves-green white black-text">+</button>
   </form>
 </div>

@@ -4,8 +4,8 @@
 
   angular.module('app')
 
-  .controller('Home', ['$scope', '$http', '$location', 'PARSE',
-    function($scope, $http, $location, PARSE){
+  .controller('Home', ['$scope', '$rootScope', '$http', '$location', 'PARSE',
+    function($scope, $rootScope, $http, $location, PARSE){
 
       $scope.visible = false;
 
@@ -48,37 +48,37 @@
 
       $scope.addColor = function(x) {
 
-        if (x.hex.length < 6) {
-          return alert('fail');
-        }
-
         var color = new Color(x);
-
-        console.log(color);
 
         $http.post(PARSE.URL + 'classes/mycolors',x, PARSE.CONFIG)
 
         .success(function(data){
 
+          color.objectId = data.objectId;
+
           $scope.colorList.push(color);
+
+          console.log($scope.colorList);
 
           $scope.c = {};
 
         });
       }
 
-      $scope.editColor = function(x) {
+      $scope.updateColor = function(x) {
 
-        $('#colorInput').val(x.hex);
+        $http.put(PARSE.URL + 'classes/mycolors/' + x.objectId, x, PARSE.CONFIG)
+          .success(function(data){
+            $scope.visible = false;
+
+          })
+
       }
 
       $scope.deleteColor = function(x) {
 
-        var objId = x.objectId;
-
-        $http.delete(PARSE.URL + 'classes/mycolors/' + objId, PARSE.CONFIG)
+        $http.delete(PARSE.URL + 'classes/mycolors/' + x.objectId, PARSE.CONFIG)
           .success( function (data) {
-            console.log(data)
             $scope.colorList = _.without($scope.colorList, x);
         });
       }
