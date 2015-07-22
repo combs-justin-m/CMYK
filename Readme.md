@@ -2,6 +2,7 @@
 
 > AngularJS CRUD application built to aid in coordinating group design.
 
+### Deliverables
 > [http://development.tiy-cmyk-jcombs.divshot.io/](http://development.tiy-cmyk-jcombs.divshot.io/)
 
 ### Technologies
